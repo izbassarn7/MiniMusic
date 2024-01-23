@@ -1,0 +1,100 @@
+.playbar {
+  position: fixed;
+  background-color: #5d3587;
+  width: 100%; /* Use 100% for full width */
+  height: 70px;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; /* Use relative units for padding */
+  gap: 2rem; /* Use relative units for spacing */
+  justify-content: space-between;
+
+  & > .togglePlay {
+    transform: scale(120%) !important;
+  }
+
+  & > p {
+    font-size: 1rem; /* Use relative font size */
+  }
+
+  & * {
+    color: white !important;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.preview {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.credits {
+  // No longer nested within info
+  flex: 0 0 250px; /* Fixed width for large screens */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  letter-spacing: 2px;
+  overflow-wrap: break-word;
+}
+
+.slider {
+  flex: 0 1 400px; /* Adjust fixed width for larger screens */
+  /* No longer nested within info */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.volume {
+  flex: 0 1 150px; /* New fixed width for smaller screens */
+  /* No longer nested within info */
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  p {
+    font-size: 0.8rem; // Adjust font size for smaller screens
+  }
+  .info {
+    gap: 0.2rem;
+    .credits,
+    .slider {
+      flex: 0 0 100%; /* Take full width on smaller screens */
+      margin-bottom: 0.5rem; /* Add spacing between elements */
+    }
+
+    .credits {
+      font-size: 0.8rem; /* Decrease font size for smaller screens */
+    }
+
+    .preview {
+      width: 30px;
+      height: 30px;
+    } /* Optional maximum size for larger screens */
+  }
+
+  .volume {
+    display: none; /* Allow full width on small screens */
+  }
+  .playbar {
+    flex-wrap: wrap;
+    padding: 10px;
+    height: auto;
+
+    gap: 0.2rem;
+  }
+}
