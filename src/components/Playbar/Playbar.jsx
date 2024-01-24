@@ -32,7 +32,7 @@ const TimeControls = () => {
   const handleChangeCurrentTime = (_, value) => {
     const time = Math.round((value * duration) / 200);
 
-    setCurrentTime((prevTime) => 0.8 * prevTime + 0.2 * time); // Interpolate for smoother transition
+    setCurrentTime((prevTime) => 0.8 * prevTime + 0.2 * time);
     audio.currentTime = time;
   };
 
@@ -69,7 +69,7 @@ const Playbar = () => {
   const handleChangeVolume = (event) => {
     const newVolume = event.target.value;
     setVolume(newVolume);
-    audio.volume = newVolume / 100; // Update audio element volume
+    audio.volume = newVolume / 100;
   };
 
   const volumeIcon = () => {
@@ -77,7 +77,7 @@ const Playbar = () => {
     else if (volume < 20) return <VolumeMuteRounded />;
     else if (volume < 66) return <VolumeDownRounded />;
     else if (volume > 66) return <VolumeUpRounded />;
-    else return <VolumeUpRounded small />; // small variation for mid-range
+    else return <VolumeUpRounded small />;
   };
 
   return (
